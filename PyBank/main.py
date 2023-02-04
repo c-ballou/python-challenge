@@ -36,7 +36,7 @@ with open(budget_data) as csvfile:
     lowest_index = profit.index(greatest_decrease)
     lowest_date = date[lowest_index]
 
-    
+    #print results in terminal
     print("Financial Analysis")
     print("----------------------------")
     print("Total Months: " + str(total_months)) 
@@ -45,7 +45,7 @@ with open(budget_data) as csvfile:
     print("Greatest Increase in Profits: " + highest_date + " ($" + str(greatest_increase) + ")" )
     print("Greatest Decrease in Profits: " + lowest_date + " ($" + str(greatest_decrease) + ")" )
 
-
+#create text file with results
 output_path = "budget_analysis.txt"
 
 file =  open(output_path, 'w') 

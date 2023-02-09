@@ -1,8 +1,11 @@
+#import modules for operating systems and csv files
 import os
 import csv
 
+#bring in csv file
 election_data = os.path.join("Resources", "election_data.csv")
 
+#set variables
 total_votes = 0
 candidates = []
 
@@ -14,10 +17,13 @@ charles_percent = 0
 diana_percent = 0
 raymon_percent = 0
 
+#set delimiter of the csv file and read the first row as a header
 with open(election_data) as csvfile:
     csv_reader = csv.reader(csvfile, delimiter=",")
     csv_header = next(csv_reader)
 
+    #for loop to append the 3rd column to a list
+    #and count votes for each candidate
     for row in csv_reader:
         candidates.append(row[2])
         if row[2] == "Charles Casper Stockham":
@@ -27,12 +33,14 @@ with open(election_data) as csvfile:
         if row[2] == "Raymon Anthony Doane":
             raymon = raymon + 1
 
+#use length function to count every vote
 total_votes = len(candidates)
 
 charles_percent = round((charles/total_votes)*100, 3)
 diana_percent = round((diana/total_votes)*100, 3)
 raymon_percent = round((raymon/total_votes)*100, 3)
 
+#use max function to find which candidate recieved the most votes
 most_votes = max(charles, diana, raymon)
 
 if most_votes == charles:
